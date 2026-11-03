@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Просто обычный город РП — официальный сайт</title>
-<meta name="description" content="Живой город на Roblox: работы, машины, полиция, кафе, телефон GorodOS. Версия 0.7.0 — дороги, светофоры, интерьеры!">
+<meta name="description" content="Живой город на Roblox: работы, машины, полиция, кафе, телефон GorodOS. Версия 0.8.0 — электричка на 300 км, дикий лес, Лесной вокзал!">
 <style>
   :root{
     --bg:#070a12; --bg2:#0d1220; --card:#131a2c; --card2:#182038;
@@ -20,6 +20,19 @@
       radial-gradient(600px 400px at 15% 10%, rgba(61,220,132,.08), transparent 60%),
       radial-gradient(700px 500px at 85% 25%, rgba(106,166,255,.09), transparent 60%),
       radial-gradient(800px 600px at 50% 90%, rgba(255,209,102,.05), transparent 60%);}
+
+  @keyframes drift{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
+  .hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2),var(--gold),var(--accent)); background-size:300% 300%; animation:drift 8s ease-in-out infinite; -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .card, .zone, .t-item{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
+  .card:hover, .zone:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 18px 40px rgba(61,220,132,.15); border-color:var(--accent);}
+  .t-item:hover{transform:translateX(6px); border-color:var(--accent2);}
+  .train-line{display:flex; align-items:center; gap:0; margin:26px 0 6px; font-size:26px; user-select:none;}
+  .train-line .stop{background:#101a30; border:1px solid #2a3a63; border-radius:10px; padding:6px 14px; font-size:13px; color:var(--text); white-space:nowrap;}
+  .train-line .rail{flex:1; height:3px; background:repeating-linear-gradient(90deg,var(--accent2) 0 12px, transparent 12px 20px); position:relative; min-width:40px;}
+  .train-line .train{position:absolute; right:-6px; top:-16px; font-size:22px; animation:ride 6s linear infinite;}
+  @keyframes ride{0%{left:-10%}100%{left:96%}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .phone-wrap .phone{animation:float 5s ease-in-out infinite;}
 
   a{color:var(--accent2); text-decoration:none;}
   a:hover{text-decoration:underline;}
@@ -42,7 +55,6 @@
   .hero .ver i{width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); animation:pulse 2s infinite;}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
   .hero h1{font-size:46px; line-height:1.12; font-weight:800; letter-spacing:-.5px;}
-  .hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent;}
   .hero p{color:var(--muted); margin:18px 0 28px; font-size:17px; max-width:520px;}
   .hero .cta{display:flex; gap:14px; flex-wrap:wrap;}
 
@@ -123,19 +135,22 @@
 
 <div class="hero">
   <div>
-    <span class="ver"><i></i> Версия 0.7.0 · «Город оживает»</span>
+    <span class="ver"><i></i> Версия 0.8.0 · «Большая электричка»</span>
     <h1>Просто обычный<br><span>город РП</span></h1>
     <p>Живой город на Roblox: работа, машины с вождением, полиция, светофоры и зебры,
        своя квартира с кроватью и холодильником, телефон GorodOS с настоящим 2G–5G.
-       Два города — Южный и Северный — соединены электричкой и шоссе.</p>
+       Два города — Южный и Северный — и <b>электричка на 300 км</b> через дикий лес до Лесного вокзала.</p>
     <div class="cta">
       <a class="btn btn-primary" href="https://www.roblox.com/games/103981113991707" target="_blank" rel="noopener">▶ Играть бесплатно</a>
       <a class="btn btn-ghost" href="#features">Узнать больше ↓</a>
     </div>
+    <div class="train-line">
+      <span class="stop">🏙 Юг</span><span class="rail"><span class="train">🚆</span></span><span class="stop">❄️ Северный</span><span class="rail"><span class="train">🚆</span></span><span class="stop">🌲 Лесной вокзал</span>
+    </div>
     <div class="stats">
       <div class="stat"><b>2</b><span>города</span></div>
-      <div class="stat"><b>18+</b><span>приложений</span></div>
-      <div class="stat"><b>3</b><span>машины</span></div>
+      <div class="stat"><b>300 км</b><span>электричка</span></div>
+      <div class="stat"><b>3</b><span>станции</span></div>
       <div class="stat"><b>7+</b><span>работ</span></div>
     </div>
   </div>
@@ -147,12 +162,12 @@
         <div class="apps">
           <div class="app">💼</div><div class="app">🍗</div><div class="app">🏠</div><div class="app">📶</div>
           <div class="app">🗺</div><div class="app">💬</div><div class="app">❤️</div><div class="app">🚌</div>
-          <div class="app">🌤</div><div class="app">📦</div><div class="app">🎰</div><div class="app">🚗</div>
+          <div class="app">🌤</div><div class="app">📦</div><div class="app">🚗</div><div class="app">🚆</div>
         </div>
         <div class="app-label">
           <span>Работы</span><span>Еда</span><span>Банк</span><span>Оператор</span>
           <span>Карта</span><span>СМС</span><span>Здоровье</span><span>Транспорт</span>
-          <span>Погода</span><span>Курьер</span><span>Казино</span><span>Гараж</span>
+          <span>Погода</span><span>Курьер</span><span>Гараж</span><span>Электричка</span>
         </div>
       </div>
     </div>
@@ -162,15 +177,15 @@
 <section id="features">
   <div class="sec-head">
     <h2>Что есть <em>в игре</em></h2>
-    <p class="sub">Постоянные обновления — сейчас версия 0.7.0 «Город оживает»</p>
+    <p class="sub">Постоянные обновления — сейчас версия 0.8.0 «Большая электричка»</p>
   </div>
   <div class="grid">
     <div class="card"><span class="emoji">🚗</span><h3>Автосалон и вождение</h3><p>Покупай машину (Ветка, Приора, Спорт GT) и вызывай через приложение «Гараж». Газ, тормоз и повороты — полноценное вождение по городу и шоссе.</p></div>
-    <div class="card"><span class="emoji">🛣</span><h3>Дороги и светофоры<span class="badge">NEW</span></h3><p>Зебры на перекрёстках, работающие светофоры, парковки у магазинов. Улицы юга стали как настоящий город.</p></div>
+    <div class="card"><span class="emoji">🚆</span><h3>Электричка 300 км<span class="badge">NEW</span></h3><p>3 станции: Юг, Северный, Лесной вокзал. Весь маршрут — 3 минуты. Ковёр, столики, поручни, двери и табло с направлением!</p></div>
     <div class="card"><span class="emoji">🏠</span><h3>Своя квартира<span class="badge">NEW</span></h3><p>Купи квартиру за 2000₽: кровать (сон = HP и стамина), холодильник (еда 20₽), ТВ. А выход на улицу — через настоящую дверь.</p></div>
     <div class="card"><span class="emoji">🚔</span><h3>Полиция и риски</h3><p>Украсть еду в ГорМаге? 35% попасться: штраф 300₽ и розыск. Оплати штраф в участке — или живи честно.</p></div>
     <div class="card"><span class="emoji">💼</span><h3>Работа и деньги</h3><p>Касса супермаркета, курьерские посылки (200–400₽), удалённая работа в банке. Обзор всех работ — в приложении «Работы».</p></div>
-    <div class="card"><span class="emoji">📱</span><h3>GorodOS</h3><p>Свой телефон: 18+ приложений — банк, карта, СМС, оператор «Gorod» с тарифами 2G–5G, курьер, казино, погода.</p></div>
+    <div class="card"><span class="emoji">📱</span><h3>GorodOS</h3><p>Свой телефон: 18+ приложений — банк, карта, СМС, оператор «Gorod» с тарифами 2G–5G, курьер, погода, работы.</p></div>
     <div class="card"><span class="emoji">💪</span><h3>Выживание</h3><p>Голод, стамина, зарядка телефона на станциях, болезнь, туалет. Не забывай о себе — умрёшь от голода!</p></div>
     <div class="card"><span class="emoji">☕</span><h3>Кафе «Уютное»</h3><p>Обед за 120₽ (+60 голода) на восточном шоссе. Рядом — автосалон и полицейский участок.</p></div>
     <div class="card"><span class="emoji">⚡</span><h3>Оптимизация</h3><p>Игра работает даже на слабых ноутбуках: умное освещение, стриминг мира, отключённые тени — FPS выше, лагов меньше.</p></div>
@@ -184,6 +199,23 @@
   </div>
   <div class="timeline">
     <div class="t-item">
+      <div class="ver">🚆 v0.8.0 «Большая электричка»</div>
+      <p>• Электричка на 300 км: 3 станции — Юг, Северный, Лесной вокзал
+• Поездка от начальной до конечной — ровно 3 минуты
+• Интерьер вагонов: ковёр, столики, поручни, багажные полки
+• Двери вагонов открываются только на стоянке
+• Транзит: на промежуточных остановках не выкидывает
+• Табло показывает направление электрички
+• Дикий лес: холмы, озеро с пляжем, деревня Дубки, полустанок Поляна
+• Казино убрано из телефона</p>
+    </div>
+    <div class="t-item old">
+      <div class="ver">🚑 v0.7.1 «Скорая помощь»</div>
+      <p>• Аварии: сбила машина — тёмный экран, мигалки, рагдолл
+• Палата в больнице, врач: лечиться 500₽ или гипс
+• Игроки могут донести друг друга до больницы</p>
+    </div>
+    <div class="t-item old">
       <div class="ver">🏙 v0.7.0 «Город оживает»</div>
       <p>• Дороги юга: зебры, светофоры, парковки, чистка мусора
 • Квартира: кровать, холодильник, ТВ + дверь на улицу
@@ -236,7 +268,8 @@
     <div class="zone"><b>🏙 Южный город (центр)</b>Супермаркеты с полками, касса, работа, квартиры-башни, станция электрички, автобус №1, парковка</div>
     <div class="zone"><b>🛣 Шоссе между городами</b>Фонари, разметка, Автосалон «У Ветра» с витринами, Кафе «Уютное», Полицейский участок с камерой</div>
     <div class="zone"><b>❄️ Северный город</b>ГорМаг (доставка еды), Качалка №1, Больница, площадь, зарядки, автобус №2</div>
-    <div class="zone"><b>🚉 Железная дорога</b>Электричка юг ↔ север: тариф у кондуктора</div>
+    <div class="zone"><b>🚉 Железная дорога (300 км)</b>Электричка: Юг → Северный → Лесной вокзал. Билет 150₽ в кассе, турникет, двери, интерьер вагонов</div>
+    <div class="zone"><b>🌲 Дикий лес</b>Холмы, озеро с пляжем, деревня Дубки, полустанок Поляна, конечная «Лесной вокзал»</div>
   </div>
 </section>
 
@@ -249,12 +282,13 @@
     <div class="card"><span class="emoji">📶</span><h3>Оператор Gorod</h3><p>Тарифы: 2G — 10₽/мин (медленно), 3G — 20₽, 4G — 25₽, 5G — 30₽ (Мощный город). Пакеты гигабайт отдельно. Вдали от города — нет сети.</p></div>
     <div class="card"><span class="emoji">🏦</span><h3>Банк</h3><p>Баланс, переводы, покупка квартиры, телепорты: «домой» и «вернуться на улицу», доставка еды.</p></div>
     <div class="card"><span class="emoji">🚌</span><h3>Транспорт</h3><p>Живое расписание автобусов №1 (юг) и №2 (север) — узнаешь, через сколько приедет.</p></div>
-    <div class="card"><span class="emoji">📦</span><h3>Курьер и Казино</h3><p>Доставляй посылки за 200–400₽ или испытай удачу в казино «Обычный» (джекпот ×5!).</p></div>
+    <div class="card"><span class="emoji">📦</span><h3>Курьер</h3><p>Доставляй посылки по всему городу — от супермаркета до качалки. Награда 200–400₽ за доставку.</p></div>
+    <div class="card"><span class="emoji">🚆</span><h3>Электричка</h3><p>Билет 150₽ в кассе, турникет, удобные вагоны со столиками. 300 км через дикий лес за 3 минуты!</p></div>
   </div>
 </section>
 
 <footer>
-  «Просто обычный город РП» · Версия 0.7.0 · создатель <b>steqan00</b> · тестер <b>Вероника</b><br>
+  «Просто обычный город РП» · Версия 0.8.0 · создатель <b>steqan00</b> · тестер <b>Вероника</b><br>
   <div class="foot-links">
     <a href="https://www.roblox.com/games/103981113991707" target="_blank" rel="noopener">▶ Страница игры</a>
   </div>
